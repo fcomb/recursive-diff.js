@@ -81,9 +81,7 @@ function diff(object1, object2, path, result) {
       const value2 = object2[key];
 
       if (value1 !== value2) {
-        if (typeof value1 === 'object') {
-          diff(value1, value2, newpath, result);
-        } else if (typeof value1 === 'undefined') {
+        if (typeof value1 === 'undefined') {
           result[newpath] = { operation: ADD, right: value2 };
         }
       }
