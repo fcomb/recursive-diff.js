@@ -31,7 +31,7 @@ function diff(object1, object2, path, result) {
     path = '/'; // set root
   }
 
-  if (result === null || typeof result === 'object') {
+  if (result === null || typeof result !== 'object') {
     result = {};
   }
 
