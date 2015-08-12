@@ -1,13 +1,18 @@
 {
-  "name": "recursive-diff",
-  "version": "0.1.1",
+  "name": "recursive-diff.js",
+  "version": "0.2.0",
   "description": "Find diff between any two variables where variables be any valid JavaScript data type like string, numeric, array or object",
-  "main": "index.js",
+  "main": "build/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "node test/test.js"
+    "test": "npm run lint",
+    "clean": "rimraf build",
+    "lint": "eslint src",
+    "build:module": "babel src --out-dir build",
+    "build": "npm run build:module",
+    "prepublish": "npm run clean && npm run test && npm run build"
   },
   "repository": {
     "type": "git",
@@ -40,5 +45,16 @@
   "bugs": {
     "url": "https://github.com/cosmicanant/recursive-diff/issues"
   },
-  "homepage": "https://github.com/cosmicanant/recursive-diff"
+  "contributors": [
+    "Eugene Rodionov (https://github.com/theaqua)"
+  ],
+  "homepage": "https://github.com/cosmicanant/recursive-diff",
+  "devDependencies": {
+    "babel": "^5.8.21",
+    "babel-eslint": "^4.0.5",
+    "eslint": "^1.1.0",
+    "eslint-config-airbnb": "0.0.7",
+    "eslint-plugin-react": "^3.2.2",
+    "rimraf": "^2.4.2"
+  }
 }
